@@ -1,0 +1,50 @@
+<ol class="breadcrumb">
+  <li><a routerLink="/home">Home</a></li>
+  <li><a routerLink="/majorcourse">Major Courses</a></li>
+  <li class="active">Manage Major Courses></li>
+</ol>
+
+<br/>
+
+<a class="btn btn-primary" routerLink="/majorcourse">Return to Major Courses</a>
+
+<h1>Manage Major Courses</h1>
+
+<app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
+
+<form novalidate (ngSubmit)="saveMajorcourse(majorcourseForm)"  #majorcourseForm="ngForm" class="form-horizontal">
+<input [ngModel]="majorcourse?.majorcourse_id" ngModel #majorcourse_id="ngModel" type="hidden" name="majorcourse_id">
+<div class="form-group">
+  <label for="major_course_id" class="col-sm-2 control-label">Major Course ID</label>
+  <div class="col-sm-10">
+    <input [ngModel]="majorcourse?.major_course_id" ngModel #major_course_id="ngModel" type="text" class="form-control" id="major_course_id" name="major_course_id" placeholder="Major Course ID" required>
+    <span *ngIf="formErrors.major_course_id" class="text-danger">
+      {{ formErrors.major_course_id }}
+    </span>
+  </div>
+</div>
+<div class="form-group">
+  <label for="major_id" class="col-sm-2 control-label">Major ID</label>
+  <div class="col-sm-10">
+    <input [ngModel]="majorcourse?.major_id" ngModel #major_id="ngModel" type="text" class="form-control" id="major_id" name="major_id"  placeholder="Major ID" required>
+    <span *ngIf="formErrors.major_id" class="text-danger">
+      {{ formErrors.major_id }}
+    </span>
+  </div>
+</div>
+<div class="form-group">
+  <label for="course_id" class="col-sm-2 control-label">Course ID</label>
+  <div class="col-sm-10">
+    <input [ngModel]="majorcourse?.course_id" ngModel #course_id="ngModel" type="text" class="form-control" id="course_id" name="course_id" placeholder="Course ID" required>
+    <span *ngIf="formErrors.course_id" class="text-danger">
+      {{ formErrors.course_id }}
+    </span>
+  </div>
+</div>
+ <div class="form-group">
+  <div class="col-sm-offset-2 col-sm-10">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</div>
+</form>
+

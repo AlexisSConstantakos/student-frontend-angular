@@ -1,0 +1,34 @@
+<ol class="breadcrumb">
+  <li><a routerLink="/home">Home</a></li>
+  <li class="active">Student Courses</li>
+</ol>
+
+<br/>
+
+<app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
+
+<h2>Student Courses</h2>
+
+<a class="btn btn-primary" routerLink="/studentcourse/add">Add Student Course</a>
+
+<table class="table table-striped table-bordered" id="dataTable" style="width:100%">
+<thead>
+  <tr>
+    <th>Student Course ID</th>
+    <th>Student ID Name</th>
+    <th>Course ID Name</th>
+    <th>Admin</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let studentcourse of studentcourses">
+    <td>{{studentcourse.student_course_id}}</td>
+    <td>{{studentcourse.student_id}}</td>
+    <td>{{studentcourse.course_id}}</td>
+    <td class="text-center">
+      <a class="btn btn-primary" [routerLink]="['/studentcourse/edit/', studentcourse.studentcourse_id]">Edit</a>&nbsp;
+      <button (click)="deleteStudentcourse(studentcourse.studentcourse_id)" class="btn btn-danger">Delete</button>
+    </td>
+  </tr>
+</tbody>
+</table>
